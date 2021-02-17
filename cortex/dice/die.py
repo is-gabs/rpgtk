@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from random import randint
 
-
 from cortex.dice.constants import DIE_FACES_NUMBERS
 from cortex.dice.exceptions import DieFacesValueException
 
