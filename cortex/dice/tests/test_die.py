@@ -3,7 +3,8 @@ from dataclasses import is_dataclass
 import pytest
 from mock import patch
 
-from cortex.dice.exceptions import DieFacesValueException
+from cortex.dice.exceptions import (DieFacesValueException,
+                                    DieOperationException)
 
 
 @pytest.fixture
@@ -16,9 +17,9 @@ def die_class():
 @pytest.fixture
 def allowed_faces_numbers():
     with patch(
-            'cortex.dice.die.DIE_FACES_NUMBERS'
+        'cortex.dice.die.DIE_FACES_NUMBERS',
+        [1]
     ) as mocked_constant:
-        mocked_constant.return_value = [1]
         yield mocked_constant
 
 
@@ -59,3 +60,19 @@ def test_die_is_hitch_property_should_return_true_when_result_is_1(die_class):
     die = die_class()
     die.result = 1
     assert die.is_hitch is True
+
+
+def test_should_raise_die_operation_exception_when_try_to_step_up_on_last_lvl(
+    die_class,
+    allowed_faces_numbers
+):
+    die = die_class(1)
+    with pytest.raises(DieOperationException):
+        die.step_up()
+
+
+def test_should_step_up_successfully_a_die(die_class):
+    die = die_class()
+    assert die.faces == 4
+    die.step_up()
+    assert die.faces == 6

@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from random import randint
 
 from cortex.dice.constants import DIE_FACES_NUMBERS
-from cortex.dice.exceptions import DieFacesValueException
+from cortex.dice.exceptions import (DieFacesValueException,
+                                    DieOperationException)
 
 
 @dataclass
@@ -19,6 +20,13 @@ class Die:
     def roll(self) -> int:
         self.result = randint(1, self.faces)
         return self.result
+
+    def step_up(self):
+        index = DIE_FACES_NUMBERS.index(self.faces)
+        try:
+            self.faces = DIE_FACES_NUMBERS[index + 1]
+        except IndexError:
+            raise DieOperationException('Not possible to step up this dice')
 
     @property
     def is_hitch(self):
