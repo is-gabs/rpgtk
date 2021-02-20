@@ -76,3 +76,19 @@ def test_should_step_up_successfully_a_die(die_class):
     assert die.faces == 4
     die.step_up()
     assert die.faces == 6
+
+
+def test_should_raise_die_operation_exception_when_try_to_step_down_first_lvl(
+    die_class,
+    allowed_faces_numbers
+):
+    die = die_class(1)
+    with pytest.raises(DieOperationException):
+        die.step_down()
+
+
+def test_should_step_down_successfully_a_die(die_class):
+    die = die_class(8)
+    assert die.faces == 8
+    die.step_down()
+    assert die.faces == 6

@@ -22,11 +22,20 @@ class Die:
         return self.result
 
     def step_up(self):
-        index = DIE_FACES_NUMBERS.index(self.faces)
+        index = DIE_FACES_NUMBERS.index(self.faces) + 1
         try:
-            self.faces = DIE_FACES_NUMBERS[index + 1]
+            self.faces = DIE_FACES_NUMBERS[index]
         except IndexError:
             raise DieOperationException('Not possible to step up this dice')
+
+    def step_down(self):
+        index = DIE_FACES_NUMBERS.index(self.faces) - 1
+        try:
+            if index < 0:
+                raise Exception()
+            self.faces = DIE_FACES_NUMBERS[index]
+        except Exception:
+            raise DieOperationException('Not possible to step down this dice')
 
     @property
     def is_hitch(self):
