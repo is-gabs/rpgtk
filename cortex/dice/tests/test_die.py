@@ -9,7 +9,7 @@ from cortex.dice.exceptions import (DieFacesValueException,
 
 @pytest.fixture
 def die_class():
-    from cortex.dice.die import Die
+    from cortex.dice.model import Die
 
     return Die
 
@@ -17,7 +17,7 @@ def die_class():
 @pytest.fixture
 def allowed_faces_numbers():
     with patch(
-        'cortex.dice.die.DIE_FACES_NUMBERS',
+        'cortex.dice.model.DIE_FACES_NUMBERS',
         [1]
     ) as mocked_constant:
         yield mocked_constant
@@ -25,7 +25,7 @@ def allowed_faces_numbers():
 
 def test_should_exist_a_die_class_at_die_module():
     try:
-        from cortex.dice.die import Die  # noqa
+        from cortex.dice.model import Die  # noqa
     except ImportError:
         pytest.fail('Cannot import Die class')
 
