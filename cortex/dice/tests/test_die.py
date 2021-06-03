@@ -1,7 +1,7 @@
 from dataclasses import is_dataclass
 
 import pytest
-from mock import patch
+from unittest.mock import patch
 
 from cortex.dice.exceptions import (
     DieFacesValueException,
