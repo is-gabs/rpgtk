@@ -3,8 +3,10 @@ from dataclasses import is_dataclass
 import pytest
 from mock import patch
 
-from cortex.dice.exceptions import (DieFacesValueException,
-                                    DieOperationException)
+from cortex.dice.exceptions import (
+    DieFacesValueException,
+    DieOperationException
+)
 
 
 @pytest.fixture
