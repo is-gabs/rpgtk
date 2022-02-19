@@ -3,8 +3,22 @@ from typing import Optional
 
 from rpgtk.exceptions import DiceException
 
+SIDE_HEAD = 'head'
+SIDE_TAIL = 'tail'
+
 
 class Dice:
+    '''
+    The Dice object have some sides.
+
+    Args:
+        sides (int): The number of the sides of a dice instance.
+
+    Attributes:
+        last_roll (int|None): Result of the last roll of a dice instance.
+
+    Don't let a dice fall from the table.
+    '''
     def __init__(self, sides: Optional[int] = 6):
         if not isinstance(sides, int) or sides < 1:
             raise DiceException('Invalid sides value received.')
@@ -12,14 +26,21 @@ class Dice:
         self.sides = sides
         self.last_roll = None
 
-    def roll(self):
+    def roll(self) -> int:
+        '''Returns a random Integer between one and the sides number.'''
         self.last_roll = randint(1, self.sides)
         return self.last_roll
 
 
 class Coin:
-    sides = ('head', 'tail')
+    '''
+    The Coin object has only two sides.
+
+    Keep it safe.
+    '''
+    sides = (SIDE_HEAD, SIDE_TAIL)
 
     @classmethod
-    def flip(cls):
+    def flip(cls) -> str:
+        '''Returns 'head' or 'tail'.'''
         return choice(cls.sides)
