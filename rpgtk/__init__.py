@@ -1,1 +1,1 @@
-from rpgtk.core import Dice  # noqa
+from rpgtk.core import Coin, Dice  # noqa
