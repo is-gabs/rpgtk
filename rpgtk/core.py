@@ -31,6 +31,10 @@ class Dice:
         self.last_roll = randint(1, self.sides)
         return self.last_roll
 
+    def __repr__(self) -> str:
+        last_roll = f'[{self.last_roll}]' if self.last_roll else ''
+        return f'D{self.sides}' + last_roll
+
 
 class Coin:
     '''
