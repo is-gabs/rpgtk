@@ -19,3 +19,6 @@ lint: clean flake8 check-python-import
 
 test_unit: clean
 	@poetry run pytest
+
+requirements:
+	@poetry install
