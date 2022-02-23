@@ -22,3 +22,6 @@ test_unit: clean
 
 requirements:
 	@poetry install
+
+test_cov:
+	@poetry run pytest --cov-config .coveragerc --cov .

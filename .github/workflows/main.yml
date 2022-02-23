@@ -31,9 +31,13 @@ jobs:
     - name: Install dependencies
       run: |
         make requirements
+        pip install coveralls
     - name: Run lint
       run: |
         make lint
     - name: Run tests
       run: |
-        make test_unit
+        make test_cov
+        coveralls --service=github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
