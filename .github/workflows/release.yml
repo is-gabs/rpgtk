@@ -23,6 +23,7 @@ jobs:
       run: poetry build
 
     - name: Publish a Python distribution to PyPI
-      run: poetry publish
+      run: |
+        poetry publish
       env:
-        pypi-token: ${{ secrets.PYPI_TOKEN }}
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
