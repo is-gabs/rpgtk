@@ -25,3 +25,12 @@ requirements:
 
 test_cov:
 	@poetry run pytest --cov-config .coveragerc --cov .
+
+release-patch:
+	@poetry run bumpversion patch
+
+release-minor:
+	@poetry run bumpversion minor
+
+release-major:
+	@poetry run bumpversion major

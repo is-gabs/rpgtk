@@ -1,6 +1,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/is-gabs/rpgtk/badge.svg)](https://coveralls.io/github/is-gabs/rpgtk)
 
-# RPGTK \[alpha\]
+# RPGTK 
 
 Role-Playing Game Toolkit is a platform for build Python RPG's systems.
 
