@@ -44,6 +44,12 @@ class Dice:
     def __len__(self) -> int:
         return self.last_roll
 
+    def __gt__(self, obj) -> bool:
+        if not isinstance(obj, Dice):
+            raise TypeError('Operation only allowed between Dice\'s instances')
+
+        return self.sides > obj.sides
+
 
 class Coin:
     '''
