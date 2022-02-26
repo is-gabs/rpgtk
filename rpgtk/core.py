@@ -41,6 +41,9 @@ class Dice:
 
         return self.sides == obj.sides
 
+    def __len__(self) -> int:
+        return self.last_roll
+
 
 class Coin:
     '''
