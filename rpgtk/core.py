@@ -50,6 +50,12 @@ class Dice:
 
         return self.sides > obj.sides
 
+    def __ge__(self, obj) -> bool:
+        if not isinstance(obj, Dice):
+            raise TypeError('Operation only allowed between Dice\'s instances')
+
+        return self.sides >= obj.sides
+
 
 class Coin:
     '''
