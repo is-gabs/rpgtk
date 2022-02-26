@@ -1,5 +1,5 @@
 from random import choice, randint
-from typing import Optional
+from typing import List, Optional
 
 from rpgtk.exceptions import DiceException
 
@@ -55,6 +55,12 @@ class Dice:
             raise TypeError('Operation only allowed between Dice\'s instances')
 
         return self.sides >= obj.sides
+
+    def __mul__(self, n_rolls: int) -> List[int]:
+        if not isinstance(n_rolls, int):
+            raise TypeError('Unsupported operand type(s) for *')
+
+        return [self.roll() for _ in range(n_rolls)]
 
 
 class Coin:

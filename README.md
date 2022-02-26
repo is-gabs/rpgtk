@@ -7,7 +7,7 @@ Role-Playing Game Toolkit is a platform for build Python RPG's systems.
 ## Installing
 Install and update using [pip](https://pypi.org/project/rpgtk/):
 ```
-$ pip install -U --pre rpgtk
+$ pip install -U rpgtk
 ```
 
 ## A simple example
@@ -24,4 +24,15 @@ print(dice)
 ```bash
 python dice.py
 'D10[6]'
+```
+
+```python
+# advantage roll
+from rpgtk import Dice
+
+dice = Dice(sides=20)
+
+advantage_roll = max(dice * 2)
+
+print(advantage_roll)
 ```
