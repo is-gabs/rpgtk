@@ -35,6 +35,12 @@ class Dice:
         last_roll = f'[{self.last_roll}]' if self.last_roll else ''
         return f'D{self.sides}' + last_roll
 
+    def __eq__(self, obj) -> bool:
+        if not isinstance(obj, Dice):
+            return False
+
+        return self.sides == obj.sides
+
 
 class Coin:
     '''
