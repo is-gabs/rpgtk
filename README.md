@@ -23,7 +23,7 @@ print(dice)
 ```
 ```bash
 python dice.py
-'D10[6]'
+'D20[6]'
 ```
 
 ```python
