@@ -1,3 +1,4 @@
+from random import shuffle
 from typing import List, Optional, Union
 
 from rpgtk.cards.constants import DEFAULT_CARD_COVER, DEFAULT_CARDS_VALUES
@@ -54,3 +55,6 @@ class Deck:
             return self.cards.pop()
         except IndexError:
             return None
+
+    def shuffle(self) -> None:
+        shuffle(self.cards)
