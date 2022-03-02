@@ -36,10 +36,13 @@ class Deck:
     '''
     def __init__(
         self,
-        cards: Optional[List[Card]] = [],
+        cards: Optional[List[Card]] = None,
         default: bool = False
     ):
-        if not cards and default:
+        if cards is None:
+            cards = list()
+
+        if default:
             cards = [Card(value=value) for value in DEFAULT_CARDS_VALUES]
 
         self.cards = cards
