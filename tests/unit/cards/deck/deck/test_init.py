@@ -11,15 +11,21 @@ def test_should_initiate_cards_with_param():
     assert deck.cards == expected_cards
 
 
+def test_should_initiate_cards_with_empty_cards():
+    deck = Deck()
+
+    assert deck.cards == []
+
+
 @mock.patch('rpgtk.cards.deck.Card')
 @mock.patch('rpgtk.cards.deck.DEFAULT_CARDS_VALUES')
-def test_should_initiate_cards_with_default_cards(
+def test_should_get_cards_from_constant_when_default_is_true(
     mock_default_cards,
     mock_card
 ):
-    mock_default_cards.__iter__.return_value = ('card', )
+    mock_default_cards.__iter__.return_value = ('card',)
 
-    deck = Deck()
+    deck = Deck(default=True)
 
     mock_card.assert_called_once_with(value='card')
     assert deck.cards == [mock_card.return_value]

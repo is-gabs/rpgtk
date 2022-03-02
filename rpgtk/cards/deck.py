@@ -30,10 +30,15 @@ class Deck:
     The collective of cards.
 
     Args:
-        cards (List[Card]|None): The initial set of cards.
+        cards (Optional[List[Card]]): The initial set of cards.
+        default (bool): Create a deck with default set of cards.
     '''
-    def __init__(self, cards: Optional[List[Card]] = None):
-        if not cards:
+    def __init__(
+        self,
+        cards: Optional[List[Card]] = [],
+        default: bool = False
+    ):
+        if not cards and default:
             cards = [Card(value=value) for value in DEFAULT_CARDS_VALUES]
 
         self.cards = cards
