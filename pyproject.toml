@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rpgtk"
-version = "0.1.7"
+version = "0.2.0"
 description = "the python rpg toolkit"
 authors = ["Gabriel Sarmento <gabrielfs.bot@gmail.com>"]
 license = "MIT"
