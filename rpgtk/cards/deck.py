@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from rpgtk.cards.constants import DEFAULT_CARD_COVER, DEFAULT_CARDS_VALUES
 
@@ -48,3 +48,9 @@ class Deck:
 
     def __getitem__(self, index: int):
         return self.cards[index]
+
+    def draw(self) -> Union[Card, None]:
+        try:
+            return self.cards.pop()
+        except IndexError:
+            return None
