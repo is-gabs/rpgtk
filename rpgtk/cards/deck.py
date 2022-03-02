@@ -42,3 +42,6 @@ class Deck:
             cards = [Card(value=value) for value in DEFAULT_CARDS_VALUES]
 
         self.cards = cards
+
+    def __len__(self):
+        return len(self.cards)
