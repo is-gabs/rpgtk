@@ -25,6 +25,9 @@ class Card:
     def __repr__(self) -> str:
         return self.value if not self.is_flipped else self.cover
 
+    def flip(self):
+        self.is_flipped = not self.is_flipped
+
 
 class Deck:
     '''
