@@ -1,7 +1,14 @@
+from enum import Enum
 from random import shuffle
 from typing import List, Optional, Union
 
 from rpgtk.cards.constants import DEFAULT_CARD_COVER, DEFAULT_CARDS_VALUES
+
+
+class Positions(Enum):
+    BEGIN = 'begin'
+    MIDDLE = 'middle'
+    END = 'end'
 
 
 class Card:
@@ -64,3 +71,15 @@ class Deck:
 
     def shuffle(self) -> None:
         shuffle(self.cards)
+
+    def pack(self, card: Card, position: Positions = Positions.END):
+        index = None
+        if position == Positions.MIDDLE:
+            size = len(self)
+            index = int((size if size > 0 else 1)/2)
+        elif position == Positions.END:
+            index = len(self)
+        else:
+            index = 0
+
+        self.cards.insert(index, card)
