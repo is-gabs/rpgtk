@@ -1,6 +1,6 @@
 from enum import Enum
 from random import shuffle
-from typing import List, Optional, Union
+from typing import Any, List, Optional, Union
 
 from rpgtk.cards.constants import DEFAULT_CARD_COVER, DEFAULT_CARDS_VALUES
 
@@ -16,12 +16,12 @@ class Card:
     The representation of a Card.
 
     Args:
-        value (str): The card content.
+        value (any): The card content.
         is_flippled (bool): If the card content is accessible.
         cover (str): The card cover.
     '''
     def __init__(
-        self, value: str,
+        self, value: Any,
         is_flipped: bool = False,
         cover: str = DEFAULT_CARD_COVER
     ):
@@ -30,7 +30,7 @@ class Card:
         self.cover = cover
 
     def __repr__(self) -> str:
-        return self.value if not self.is_flipped else self.cover
+        return str(self.value if not self.is_flipped else self.cover)
 
     def flip(self):
         self.is_flipped = not self.is_flipped
