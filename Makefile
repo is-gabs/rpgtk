@@ -17,13 +17,13 @@ clean:
 
 lint: clean flake8 check-python-import
 
-test_unit: clean
+test: clean
 	@poetry run pytest
 
 requirements:
 	@poetry install
 
-test_cov:
+coverage:
 	@poetry run pytest --cov-config .coveragerc --cov .
 
 release-patch:
