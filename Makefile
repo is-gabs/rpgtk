@@ -24,7 +24,7 @@ requirements:
 	@poetry install --no-root
 
 coverage:
-	@poetry run pytest --cov-config .coveragerc --cov .
+	@poetry run pytest --cov-config .coveragerc --cov rpgtk
 
 release-patch:
 	@poetry run bumpversion patch
