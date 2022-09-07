@@ -1,11 +1,11 @@
 flake8:
-	@poetry run flake8 --show-source .
+	@poetry run flake8 --show-source tests rpgtk
 
 check-python-import:
-	@poetry run isort --check-only .
+	@poetry run isort --check-only tests rpgtk
 
 fix-python-import:
-	@poetry run isort .
+	@poetry run isort tests rpgtk
 
 clean:
 	@find . -name "*.pyc" | xargs rm -rf
@@ -18,10 +18,10 @@ clean:
 lint: clean flake8 check-python-import
 
 test: clean
-	@poetry run pytest
+	@poetry run pytest tests
 
 requirements:
-	@poetry install
+	@poetry install --no-root
 
 coverage:
 	@poetry run pytest --cov-config .coveragerc --cov .
